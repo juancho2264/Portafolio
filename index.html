@@ -1,52 +1,30 @@
 <!DOCTYPE html>
-<!-- 
-  ES: Define el idioma del documento como español y habilita el desplazamiento suave.
-  EN: Defines the document language as Spanish and enables smooth scrolling.
--->
+<!-- ===== DOCUMENT DEFINITION / DEFINICIÓN DEL DOCUMENTO ===== -->
 <html lang="es" class="scroll-smooth">
 <head>
+    <!-- ===== METADATA & CONFIGURATION / METADATOS Y CONFIGURACIÓN ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Cruz Ferrandini | Portafolio</title>
     
-    <!-- 
-      ES: Carga de librerías y hojas de estilo externas.
-      EN: Loading external libraries and stylesheets.
-    -->
-    
-    <!-- Tailwind CSS - Framework de CSS para un diseño rápido y responsivo. -->
-    <!-- Tailwind CSS - A utility-first CSS framework for rapid, responsive design. -->
+    <!-- ===== EXTERNAL LIBRARIES & STYLESHEETS / LIBRERÍAS Y HOJAS DE ESTILO EXTERNAS ===== -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Poppins - Importa la fuente Poppins desde Google Fonts. -->
-    <!-- Google Fonts: Poppins - Imports the Poppins font from Google Fonts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS (Animate On Scroll) Library - Para animaciones que se activan al hacer scroll. -->
-    <!-- AOS (Animate On Scroll) Library - For animations that trigger on scroll. -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Feather Icons - Librería de iconos SVG ligeros y personalizables. -->
-    <!-- Feather Icons - A library of lightweight and customizable SVG icons. -->
     <script src="https://unpkg.com/feather-icons"></script>
 
+    <!-- ===== STYLESHEET / HOJA DE ESTILOS ===== -->
     <style>
-        /* ES: Estilos personalizados para complementar Tailwind CSS.
-          EN: Custom styles to complement Tailwind CSS.
-        */
-
-        /* ES: Aplica la fuente Poppins al cuerpo del documento y define colores base. */
-        /* EN: Applies the Poppins font to the document body and defines base colors. */
+        /* Base styles / Estilos base */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #111827; /* bg-gray-900 */
             color: #F3F4F6; /* text-gray-200 */
         }
         
-        /* ES: Animación para revelar el texto del título letra por letra. */
-        /* EN: Animation to reveal the title text letter by letter. */
+        /* Title character reveal animation / Animación de revelado para los caracteres del título */
         .title-char {
             display: inline-block;
             opacity: 0;
@@ -60,8 +38,7 @@
             }
         }
 
-        /* ES: Estilo para crear un texto con un degradado de color. */
-        /* EN: Style to create text with a color gradient. */
+        /* Gradient text style / Estilo de texto con gradiente */
         .text-gradient {
             background: linear-gradient(90deg, #38bdf8, #4f46e5);
             -webkit-background-clip: text;
@@ -69,36 +46,21 @@
             background-clip: text;
         }
         
-        /* ES: Efecto "Glassmorphism" para las tarjetas, creando un aspecto de vidrio esmerilado. */
-        /* EN: "Glassmorphism" effect for cards, creating a frosted glass look. */
+        /* Glassmorphism card effect / Efecto "Glassmorphism" para tarjetas */
         .glass-card {
             background: rgba(31, 41, 55, 0.5); /* bg-gray-800 with opacity */
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* ES: Estilos personalizados para la barra de desplazamiento del navegador. */
-        /* EN: Custom styles for the browser's scrollbar. */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4f46e5;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #38bdf8;
-        }
+        /* Custom scrollbar styles / Estilos personalizados para la barra de desplazamiento */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
 
-        /* ES: Estilos para el tooltip (mensaje emergente) del botón de copiar. */
-        /* EN: Styles for the tooltip of the copy button. */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
+        /* Tooltip styles for copy button / Estilos del tooltip para el botón de copiar */
+        .tooltip { position: relative; display: inline-block; }
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 140px;
@@ -125,33 +87,21 @@
             border-style: solid;
             border-color: #1f2937 transparent transparent transparent;
         }
-        .tooltip.show .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
+        .tooltip.show .tooltiptext { visibility: visible; opacity: 1; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- 
-      ES: Contenedor para la animación de partículas en el fondo. Se posiciona de forma fija detrás de todo el contenido.
-      EN: Container for the particle animation in the background. It is positioned fixed behind all content.
-    -->
+    <!-- ===== PARTICLES BACKGROUND / FONDO DE PARTÍCULAS ===== -->
     <div id="particles-js" class="fixed inset-0 z-0"></div>
 
-    <!-- 
-      ES: Contenedor principal que se superpone a las partículas para todo el contenido visible.
-      EN: Main container that overlays the particles for all visible content.
-    -->
+    <!-- ===== MAIN CONTENT WRAPPER / CONTENEDOR PRINCIPAL DE CONTENIDO ===== -->
     <div class="relative z-10">
 
-        <!-- 
-          ES: Sección de cabecera (Hero). Ocupa toda la pantalla inicial.
-          EN: Header (Hero) Section. Occupies the entire initial screen.
-        -->
+        <!-- ===== HERO SECTION / SECCIÓN HERO ===== -->
         <header id="home" class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-            <h1 id="main-title" class="text-4xl md:text-6xl font-bold mb-2"></h1>
-            <p data-aos="fade-up" data-aos-delay="1200" class="text-lg md:text-2xl text-sky-400">Técnico Electrónico | Estudiante de Gestión de la Informática</p>
+            <h1 id="main-title" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 break-words"></h1>
+            <p data-aos="fade-up" data-aos-delay="1200" class="text-base sm:text-lg md:text-2xl text-sky-400">Técnico Electrónico | Estudiante de Gestión de la Informática</p>
             <a href="#sobre-mi" data-aos="fade-up" data-aos-delay="1400" class="mt-8 animate-bounce bg-sky-500/20 p-3 rounded-full border border-sky-500">
                 <i data-feather="arrow-down" class="text-sky-400"></i>
             </a>
@@ -159,15 +109,12 @@
 
         <main class="container mx-auto px-6 md:px-12">
 
-            <!-- 
-              ES: Sección "Sobre mí" o "Perfil Profesional".
-              EN: "About Me" or "Professional Profile" Section.
-            -->
+            <!-- ===== ABOUT ME SECTION / SECCIÓN SOBRE MÍ ===== -->
             <section id="sobre-mi" class="py-20">
                 <h2 data-aos="fade-right" class="text-3xl font-bold mb-8 text-center text-gradient">Perfil Profesional</h2>
                 <div data-aos="zoom-in-up" class="glass-card rounded-xl p-8 max-w-4xl mx-auto text-center leading-relaxed">
                     <p>
-                        Soy Técnico Electrónico con habilidades en tecnología y programación, y una mentalidad práctica orientada a la resolución de problemas. Actualmente, estoy cursando el primer año de la Licenciatura en Gestión de la Informática en UADE.
+                        Soy Técnico Electrónico con habilidades en tecnología y programación, y una mentalidad práctica orientada a la resolución de problemas. Actualmente, estoy cursando el primer año de la Licenciatura en Gestión de la Informática en la UADE.
                     </p>
                     <p class="mt-4">
                         Mi formación me permite abordar desafíos desde una perspectiva tanto técnica como de gestión. Soy proactivo, con gran capacidad de aprendizaje y adaptable. Busco aplicar mis conocimientos y aptitud técnica en un entorno real para contribuir al éxito de la organización y continuar mi crecimiento profesional.
@@ -175,16 +122,12 @@
                 </div>
             </section>
 
-            <!-- 
-              ES: Sección de Habilidades (Skills).
-              EN: Skills Section.
-            -->
+            <!-- ===== SKILLS SECTION / SECCIÓN DE HABILIDADES ===== -->
             <section id="skills" class="py-20">
                 <h2 data-aos="fade-left" class="text-3xl font-bold mb-12 text-center text-gradient">Habilidades</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- ES: Tarjeta de habilidades de programación. -->
-                    <!-- EN: Programming skills card. -->
+                    <!-- Programming Card / Tarjeta de Lenguajes -->
                     <div data-aos="fade-up" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-sky-500/20 rounded-full mb-4 border border-sky-500">
                             <i data-feather="code" class="w-8 h-8 text-sky-400"></i>
@@ -198,8 +141,7 @@
                         </ul>
                     </div>
 
-                    <!-- ES: Tarjeta de habilidades técnicas. -->
-                    <!-- EN: Technical skills card. -->
+                    <!-- Technical Card / Tarjeta de Habilidades Técnicas -->
                     <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-indigo-500/20 rounded-full mb-4 border border-indigo-500">
                             <i data-feather="cpu" class="w-8 h-8 text-indigo-400"></i>
@@ -212,8 +154,7 @@
                         </ul>
                     </div>
 
-                    <!-- ES: Tarjeta de habilidades blandas (Soft Skills). -->
-                    <!-- EN: Soft skills card. -->
+                    <!-- Soft Skills Card / Tarjeta de Habilidades Blandas -->
                     <div data-aos="fade-up" data-aos-delay="400" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-emerald-500/20 rounded-full mb-4 border border-emerald-500">
                             <i data-feather="users" class="w-8 h-8 text-emerald-400"></i>
@@ -229,16 +170,41 @@
                 </div>
             </section>
 
-            <!-- 
-              ES: Sección de Trayectoria (Educación y Experiencia).
-              EN: Journey Section (Education & Experience).
-            -->
+            <!-- ===== PROJECTS SECTION / SECCIÓN DE PROYECTOS ===== -->
+            <section id="proyectos" class="py-20">
+                <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mis Proyectos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Don Sixto Project / Proyecto Don Sixto -->
+                    <div data-aos="fade-up" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20">
+                        <img src="https://i.imgur.com/r3HAeTL.png" alt="Vista previa del e-commerce Don Sixto" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">E-commerce "Don Sixto"</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">Prototipo front-end de una tienda online, implementado como una Single Page Application (SPA) con JavaScript puro para manejar la navegación, el filtrado de productos y el carrito de compras.</p>
+                            <a href="https://juancho2264.github.io/DonSixto/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 mt-auto bg-sky-500/80 text-white py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">
+                                Ver Proyecto <i data-feather="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Michael Jordan Project / Proyecto Michael Jordan -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
+                        <img src="https://i.imgur.com/GQc2Qmr.png" alt="Vista previa de la landing page de Michael Jordan" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Tributo a Michael Jordan</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">Landing page interactiva que repasa la carrera de Michael Jordan. El proyecto se enfoca en la manipulación dinámica del DOM y un diseño totalmente responsive utilizando Tailwind CSS.</p>
+                            <a href="https://juancho2264.github.io/Jordan/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 mt-auto bg-indigo-500/80 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors">
+                                Ver Proyecto <i data-feather="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== JOURNEY SECTION (EDUCATION & EXPERIENCE) / SECCIÓN DE TRAYECTORIA (EDUCACIÓN Y EXPERIENCIA) ===== -->
             <section id="journey" class="py-20">
                  <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mi Trayectoria</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                     
-                    <!-- ES: Columna de Educación. -->
-                    <!-- EN: Education Column. -->
+                    <!-- Education Column / Columna de Educación -->
                     <div data-aos="fade-right" data-aos-delay="200">
                         <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="book-open" class="text-sky-400"></i> Educación</h3>
                         <div class="relative border-l-2 border-sky-500/50 pl-8 space-y-10">
@@ -257,8 +223,7 @@
                         </div>
                     </div>
 
-                    <!-- ES: Columna de Experiencia Laboral. -->
-                    <!-- EN: Work Experience Column. -->
+                    <!-- Work Experience Column / Columna de Experiencia Laboral -->
                     <div data-aos="fade-left" data-aos-delay="400">
                         <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="briefcase" class="text-indigo-400"></i> Experiencia Laboral</h3>
                         <div class="relative border-l-2 border-indigo-500/50 pl-8 space-y-10">
@@ -283,17 +248,14 @@
                 </div>
             </section>
 
-            <!-- 
-              ES: Sección de Contacto.
-              EN: Contact Section.
-            -->
+            <!-- ===== CONTACT SECTION / SECCIÓN DE CONTACTO ===== -->
             <section id="contact" class="py-20 text-center">
                 <h2 data-aos="zoom-in" class="text-3xl font-bold text-gradient mb-4">¿Hablamos?</h2>
                 <p data-aos="zoom-in" data-aos-delay="100" class="text-gray-400 mb-8 max-w-lg mx-auto">Estoy abierto a nuevas oportunidades y desafíos. Si crees que mi perfil encaja en tu equipo, no dudes en contactarme.</p>
-                <div data-aos="zoom-in" data-aos-delay="200" class="flex justify-center items-center gap-4 md:gap-6">
+                <div data-aos="zoom-in" data-aos-delay="200" class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
                     <div id="email-container" class="tooltip flex items-center gap-2 bg-gray-800 py-2 px-4 rounded-lg">
                         <i data-feather="mail" class="text-gray-400"></i>
-                        <span id="email-text" class="text-white">ferrandinijuancruz@gmail.com</span>
+                        <span id="email-text" class="text-white">juanchoferrandini3@gmail.com</span>
                         <button id="copy-button" class="ml-2 text-gray-400 hover:text-sky-400 transition-colors">
                             <i data-feather="copy" class="w-5 h-5"></i>
                         </button>
@@ -307,59 +269,47 @@
             </section>
         </main>
 
-        <!-- 
-          ES: Pie de página.
-          EN: Footer.
-        -->
+        <!-- ===== FOOTER / PIE DE PÁGINA ===== -->
         <footer class="text-center py-6 border-t border-gray-800">
             <p class="text-gray-500 text-sm">&copy; 2025 Juan Cruz Ferrandini. Todos los derechos reservados.</p>
         </footer>
 
     </div>
 
-    <!-- 
-      ES: Carga de scripts de JavaScript al final del body para un mejor rendimiento.
-      EN: Loading JavaScript scripts at the end of the body for better performance.
-    -->
+    <!-- ===== SCRIPT LOADING / CARGA DE SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // ES: Inicializa la librería Feather Icons para reemplazar las etiquetas <i> por SVGs.
-        // EN: Initializes the Feather Icons library to replace <i> tags with SVGs.
+        // ===== FEATHER ICONS INITIALIZATION / INICIALIZACIÓN DE FEATHER ICONS =====
         feather.replace();
 
-        // ES: Inicializa la librería AOS (Animate On Scroll).
-        // EN: Initializes the AOS (Animate On Scroll) library.
+        // ===== AOS (ANIMATE ON SCROLL) INITIALIZATION / INICIALIZACIÓN DE AOS =====
         AOS.init({
-            duration: 600, // ES: Duración de la animación en milisegundos. | EN: Animation duration in milliseconds.
-            once: false,   // ES: La animación se repite cada vez que el elemento es visible. | EN: The animation repeats every time the element is visible.
+            duration: 600,
+            once: false,
         });
 
-        // --- ES: Animación para revelar el título ---
-        // --- EN: Text Reveal Animation for the title ---
+        // ===== TITLE REVEAL ANIMATION / ANIMACIÓN DE REVELADO DEL TÍTULO =====
         document.addEventListener('DOMContentLoaded', () => {
             const title = "Juan Cruz Ferrandini";
             const titleContainer = document.getElementById('main-title');
             title.split('').forEach((char, index) => {
                 const span = document.createElement('span');
-                span.textContent = char === ' ' ? '\u00A0' : char; // ES: Usa un espacio sin ruptura para mantener los espacios. | EN: Uses a non-breaking space to maintain spaces.
+                span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space / Usa espacio de no ruptura
                 span.className = 'title-char';
-                span.style.animationDelay = `${index * 0.05}s`; // ES: Retraso escalonado para cada letra. | EN: Staggered delay for each letter.
+                span.style.animationDelay = `${index * 0.05}s`;
                 titleContainer.appendChild(span);
             });
         });
 
-        // --- ES: Lógica para copiar el email al portapapeles ---
-        // --- EN: Logic to copy the email to the clipboard ---
+        // ===== CLIPBOARD COPY LOGIC / LÓGICA PARA COPIAR AL PORTAPAPELES =====
         const copyButton = document.getElementById('copy-button');
         const emailText = document.getElementById('email-text').innerText;
         const tooltipContainer = document.getElementById('email-container');
         const tooltipText = document.getElementById('tooltip-text');
 
         copyButton.addEventListener('click', () => {
-            // ES: Crea un textarea temporal para copiar el texto de forma segura.
-            // EN: Creates a temporary textarea to securely copy the text.
             const tempTextArea = document.createElement('textarea');
             tempTextArea.value = emailText;
             document.body.appendChild(tempTextArea);
@@ -367,13 +317,11 @@
             document.execCommand('copy');
             document.body.removeChild(tempTextArea);
 
-            // ES: Muestra el tooltip de confirmación.
-            // EN: Shows the confirmation tooltip.
+            // Show confirmation tooltip / Muestra tooltip de confirmación
             tooltipText.innerText = '¡Copiado!';
             tooltipContainer.classList.add('show');
             
-            // ES: Revierte el texto del tooltip después de 2 segundos.
-            // EN: Reverts the tooltip text after 2 seconds.
+            // Revert tooltip text after 2 seconds / Revierte el texto del tooltip después de 2 segundos
             setTimeout(() => {
                 tooltipContainer.classList.remove('show');
                 setTimeout(() => {
@@ -382,14 +330,12 @@
             }, 2000);
         });
         
-        // ES: Muestra el tooltip cuando el cursor pasa sobre el botón.
-        // EN: Shows the tooltip when the cursor hovers over the button.
+        // Show tooltip on hover / Muestra el tooltip al pasar el cursor
         copyButton.addEventListener('mouseenter', () => {
              tooltipContainer.classList.add('show');
         });
 
-        // ES: Oculta el tooltip cuando el cursor sale, solo si no se ha copiado el texto.
-        // EN: Hides the tooltip when the cursor leaves, only if the text has not been copied.
+        // Hide tooltip on mouse leave / Oculta el tooltip al quitar el cursor
         copyButton.addEventListener('mouseleave', () => {
             if (tooltipText.innerText === 'Copiar al portapapeles') {
                 tooltipContainer.classList.remove('show');
@@ -397,8 +343,7 @@
         });
 
 
-        // --- ES: Inicialización y configuración de Particles.js para el fondo animado ---
-        // --- EN: Initialization and configuration of Particles.js for the animated background ---
+        // ===== PARTICLES.JS INITIALIZATION / INICIALIZACIÓN DE PARTICLES.JS =====
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 60, "density": { "enable": true, "value_area": 800 }},
@@ -422,3 +367,4 @@
     </script>
 </body>
 </html>
+
