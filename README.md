@@ -2,7 +2,7 @@
 
 Mi portafolio profesional diseñado para mostrar mi transición de **Técnico Electrónico** a **Licenciado en Gestión de la Informática (UADE)**. Una plataforma interactiva que combina diseño moderno, optimización de recursos y despliegue en la nube.
 
-### 🔗 [Ver Portafolio en Vivo](https://juancho2264.github.io/tu-repo/)
+### 🔗 [Ver Portafolio en Vivo](https://juancho2264.github.io/Portafolio/)
 
 ---
 
