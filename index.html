@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<!-- ===== DOCUMENT DEFINITION / DEFINICIÓN DEL DOCUMENTO ===== -->
 <html lang="es" class="scroll-smooth">
 <head>
-    <!-- ===== METADATA & CONFIGURATION / METADATOS Y CONFIGURACIÓN ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Cruz Ferrandini | Portafolio</title>
     
-    <!-- ===== EXTERNAL LIBRARIES & STYLESHEETS / LIBRERÍAS Y HOJAS DE ESTILO EXTERNAS ===== -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +12,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <!-- ===== STYLESHEET / HOJA DE ESTILOS ===== -->
     <style>
         /* Base styles / Estilos base */
         body {
@@ -92,13 +88,10 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- ===== PARTICLES BACKGROUND / FONDO DE PARTÍCULAS ===== -->
     <div id="particles-js" class="fixed inset-0 z-0"></div>
 
-    <!-- ===== MAIN CONTENT WRAPPER / CONTENEDOR PRINCIPAL DE CONTENIDO ===== -->
     <div class="relative z-10">
 
-        <!-- ===== HERO SECTION / SECCIÓN HERO ===== -->
         <header id="home" class="min-h-screen flex flex-col items-center justify-center text-center p-4">
             <h1 id="main-title" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 break-words"></h1>
             <p data-aos="fade-up" data-aos-delay="1200" class="text-base sm:text-lg md:text-2xl text-sky-400">Técnico Electrónico | Estudiante de Gestión de la Informática</p>
@@ -109,12 +102,11 @@
 
         <main class="container mx-auto px-6 md:px-12">
 
-            <!-- ===== ABOUT ME SECTION / SECCIÓN SOBRE MÍ ===== -->
             <section id="sobre-mi" class="py-20">
                 <h2 data-aos="fade-right" class="text-3xl font-bold mb-8 text-center text-gradient">Perfil Profesional</h2>
                 <div data-aos="zoom-in-up" class="glass-card rounded-xl p-8 max-w-4xl mx-auto text-center leading-relaxed">
                     <p>
-                        Soy Técnico Electrónico con habilidades en tecnología y programación, y una mentalidad práctica orientada a la resolución de problemas. Actualmente, estoy cursando el primer año de la Licenciatura en Gestión de la Informática en la UADE.
+                        Soy Técnico Electrónico con habilidades en tecnología y programación, y una mentalidad práctica orientada a la resolución de problemas. Actualmente, estoy cursando la Licenciatura en Gestión de la Informática en la UADE.
                     </p>
                     <p class="mt-4">
                         Mi formación me permite abordar desafíos desde una perspectiva tanto técnica como de gestión. Soy proactivo, con gran capacidad de aprendizaje y adaptable. Busco aplicar mis conocimientos y aptitud técnica en un entorno real para contribuir al éxito de la organización y continuar mi crecimiento profesional.
@@ -122,12 +114,10 @@
                 </div>
             </section>
 
-            <!-- ===== SKILLS SECTION / SECCIÓN DE HABILIDADES ===== -->
             <section id="skills" class="py-20">
                 <h2 data-aos="fade-left" class="text-3xl font-bold mb-12 text-center text-gradient">Habilidades</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Programming Card / Tarjeta de Lenguajes -->
                     <div data-aos="fade-up" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-sky-500/20 rounded-full mb-4 border border-sky-500">
                             <i data-feather="code" class="w-8 h-8 text-sky-400"></i>
@@ -141,20 +131,19 @@
                         </ul>
                     </div>
 
-                    <!-- Technical Card / Tarjeta de Habilidades Técnicas -->
                     <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-indigo-500/20 rounded-full mb-4 border border-indigo-500">
                             <i data-feather="cpu" class="w-8 h-8 text-indigo-400"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Técnicas</h3>
                         <ul class="text-gray-400">
+                            <li class="text-sky-300 font-semibold italic">Cloud Computing (Certificado)</li>
                             <li>Diagnóstico de Fallas</li>
                             <li>Mantenimiento de Equipos</li>
                             <li>Soporte Técnico</li>
                         </ul>
                     </div>
 
-                    <!-- Soft Skills Card / Tarjeta de Habilidades Blandas -->
                     <div data-aos="fade-up" data-aos-delay="400" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="inline-block p-4 bg-emerald-500/20 rounded-full mb-4 border border-emerald-500">
                             <i data-feather="users" class="w-8 h-8 text-emerald-400"></i>
@@ -170,13 +159,30 @@
                 </div>
             </section>
 
-            <!-- ===== PROJECTS SECTION / SECCIÓN DE PROYECTOS ===== -->
+<section id="certificaciones" class="py-20">
+                <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Certificaciones</h2>
+                <a href="https://skillshop.exceedlms.com/student/award/whVZm5hebohdGzkreWgra6qC" target="_blank" rel="noopener noreferrer" 
+                   data-aos="zoom-in" 
+                   class="glass-card rounded-xl p-6 max-w-2xl mx-auto flex items-center gap-6 border-l-4 border-sky-500 transform hover:scale-[1.02] hover:bg-gray-800/80 transition-all duration-300 cursor-pointer block">
+                    <div class="bg-sky-500/10 p-4 rounded-full">
+                        <i data-feather="cloud" class="w-10 h-10 text-sky-400"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-white">Professional Certification in Cloud Computing</h3>
+                            <i data-feather="external-link" class="w-5 h-5 text-gray-500"></i>
+                        </div>
+                        <p class="text-gray-400">Google Cloud | Marzo de 2026</p>
+                        <p class="text-xs text-sky-400 mt-2 font-semibold tracking-wider">CLICK PARA VER CREDENCIAL</p>
+                    </div>
+                </a>
+            </section>
+
             <section id="proyectos" class="py-20">
                 <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mis Proyectos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Don Sixto Project / Proyecto Don Sixto -->
                     <div data-aos="fade-up" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20">
-                        <img src="https://i.imgur.com/r3HAeTL.png" alt="Vista previa del e-commerce Don Sixto" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
+                        <img src="https://cowboylifestylenetwork.com/wp-content/uploads/2022/05/Kings-Saddlery-1536x864.jpg" alt="Vista previa del e-commerce Don Sixto" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold mb-2">E-commerce "Don Sixto"</h3>
                             <p class="text-gray-400 text-sm mb-4 flex-grow">Prototipo front-end de una tienda online, implementado como una Single Page Application (SPA) con JavaScript puro para manejar la navegación, el filtrado de productos y el carrito de compras.</p>
@@ -185,9 +191,8 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Michael Jordan Project / Proyecto Michael Jordan -->
                     <div data-aos="fade-up" data-aos-delay="200" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
-                        <img src="https://i.imgur.com/GQc2Qmr.png" alt="Vista previa de la landing page de Michael Jordan" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
+                        <img src="https://i.pinimg.com/originals/17/32/d5/1732d5bc0302216953d410d553d4a463.jpg" alt="Vista previa de la landing page de Michael Jordan" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold mb-2">Tributo a Michael Jordan</h3>
                             <p class="text-gray-400 text-sm mb-4 flex-grow">Landing page interactiva que repasa la carrera de Michael Jordan. El proyecto se enfoca en la manipulación dinámica del DOM y un diseño totalmente responsive utilizando Tailwind CSS.</p>
@@ -199,12 +204,10 @@
                 </div>
             </section>
 
-            <!-- ===== JOURNEY SECTION (EDUCATION & EXPERIENCE) / SECCIÓN DE TRAYECTORIA (EDUCACIÓN Y EXPERIENCIA) ===== -->
             <section id="journey" class="py-20">
                  <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mi Trayectoria</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                     
-                    <!-- Education Column / Columna de Educación -->
                     <div data-aos="fade-right" data-aos-delay="200">
                         <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="book-open" class="text-sky-400"></i> Educación</h3>
                         <div class="relative border-l-2 border-sky-500/50 pl-8 space-y-10">
@@ -223,7 +226,6 @@
                         </div>
                     </div>
 
-                    <!-- Work Experience Column / Columna de Experiencia Laboral -->
                     <div data-aos="fade-left" data-aos-delay="400">
                         <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="briefcase" class="text-indigo-400"></i> Experiencia Laboral</h3>
                         <div class="relative border-l-2 border-indigo-500/50 pl-8 space-y-10">
@@ -248,7 +250,6 @@
                 </div>
             </section>
 
-            <!-- ===== CONTACT SECTION / SECCIÓN DE CONTACTO ===== -->
             <section id="contact" class="py-20 text-center">
                 <h2 data-aos="zoom-in" class="text-3xl font-bold text-gradient mb-4">¿Hablamos?</h2>
                 <p data-aos="zoom-in" data-aos-delay="100" class="text-gray-400 mb-8 max-w-lg mx-auto">Estoy abierto a nuevas oportunidades y desafíos. Si crees que mi perfil encaja en tu equipo, no dudes en contactarme.</p>
@@ -269,14 +270,12 @@
             </section>
         </main>
 
-        <!-- ===== FOOTER / PIE DE PÁGINA ===== -->
         <footer class="text-center py-6 border-t border-gray-800">
-            <p class="text-gray-500 text-sm">&copy; 2025 Juan Cruz Ferrandini. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-sm">&copy; 2026 Juan Cruz Ferrandini. Todos los derechos reservados.</p>
         </footer>
 
     </div>
 
-    <!-- ===== SCRIPT LOADING / CARGA DE SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -367,4 +366,3 @@
     </script>
 </body>
 </html>
-
