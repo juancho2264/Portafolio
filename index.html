@@ -1,368 +1,451 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
+<script>document.documentElement.classList.add('js')</script>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Cruz Ferrandini | Portafolio</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Cruz Ferrandini | Técnico Electrónico · IT · Desarrollo web</title>
+  <meta name="description" content="Técnico Electrónico y estudiante de Gestión de Tecnología de la Información (UADE). Certificado en Google Cloud. Hago páginas web y herramientas digitales para negocios.">
 
-    <style>
-        /* Base styles / Estilos base */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-            color: #F3F4F6; /* text-gray-200 */
-        }
-        
-        /* Title character reveal animation / Animación de revelado para los caracteres del título */
-        .title-char {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: reveal 1s forwards;
-        }
-        @keyframes reveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  <!-- Vista previa cuando compartís el link por WhatsApp o LinkedIn -->
+  <meta property="og:title" content="Juan Cruz Ferrandini — Técnico Electrónico · IT">
+  <meta property="og:description" content="Del taller y la fábrica al software. Páginas web y herramientas digitales para negocios.">
+  <meta property="og:type" content="website">
 
-        /* Gradient text style / Estilo de texto con gradiente */
-        .text-gradient {
-            background: linear-gradient(90deg, #38bdf8, #4f46e5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Glassmorphism card effect / Efecto "Glassmorphism" para tarjetas */
-        .glass-card {
-            background: rgba(31, 41, 55, 0.5); /* bg-gray-800 with opacity */
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Custom scrollbar styles / Estilos personalizados para la barra de desplazamiento */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        /* Tooltip styles for copy button / Estilos del tooltip para el botón de copiar */
-        .tooltip { position: relative; display: inline-block; }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 140px;
-            background-color: #1f2937;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -70px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #1f2937 transparent transparent transparent;
-        }
-        .tooltip.show .tooltiptext { visibility: visible; opacity: 1; }
-    </style>
+  <style>
+    /* =========================================================
+       ESTÉTICA: "hoja de datos técnica" (datasheet de electrónica).
+       Papel claro, grilla fina, etiquetas en monoespaciada y un
+       solo color de acento. Cambiando estas variables cambiás todo.
+       ========================================================= */
+    :root {
+      --papel: #f4f1ea;
+      --papel-2: #ebe6dc;
+      --tinta: #1b1a17;
+      --tinta-suave: #5e5a52;
+      --linea: #d4cdbf;
+      --acento: #e2531d;          /* naranja señal */
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--tinta);
+      background-color: var(--papel);
+      background-image:
+        linear-gradient(var(--linea) 1px, transparent 1px),
+        linear-gradient(90deg, var(--linea) 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-position: -1px -1px;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .hoja {
+      width: min(1040px, 94%);
+      margin: 28px auto;
+      background: var(--papel);
+      border: 1.5px solid var(--tinta);
+    }
+    .mono { font-family: var(--mono); }
+    .etiqueta {
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--tinta-suave);
+    }
+
+    /* ===== Barra superior tipo encabezado de datasheet ===== */
+    .barra {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 10px 24px; border-bottom: 1.5px solid var(--tinta);
+      font-family: var(--mono); font-size: .78rem;
+      position: sticky; top: 0; background: var(--papel); z-index: 5;
+    }
+    .barra nav { display: flex; gap: 20px; }
+    .barra nav a { text-decoration: none; }
+    .barra nav a:hover { color: var(--acento); }
+    @media (max-width: 680px) { .barra nav { display: none; } }
+
+    /* ===== Portada ===== */
+    .portada { display: grid; grid-template-columns: 1.6fr 1fr; border-bottom: 1.5px solid var(--tinta); }
+    .portada > div { padding: 48px 32px; }
+    .portada > div + div { border-left: 1.5px solid var(--tinta); }
+    @media (max-width: 800px) {
+      .portada { grid-template-columns: 1fr; }
+      .portada > div + div { border-left: 0; border-top: 1.5px solid var(--tinta); }
+    }
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      line-height: 1; letter-spacing: -0.03em; font-weight: 700;
+      margin: 14px 0 18px;
+    }
+    h1 em { font-style: normal; color: var(--acento); }
+    .lead { font-size: 1.15rem; max-width: 34ch; color: var(--tinta-suave); }
+    .estado {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: .8rem;
+      border: 1px solid var(--tinta); padding: 6px 12px; margin-top: 28px;
+    }
+    .led { width: 9px; height: 9px; border-radius: 50%; background: #2fa84f; box-shadow: 0 0 0 3px rgba(47,168,79,.2); }
+
+    .specs { list-style: none; }
+    .specs li {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 11px 0; border-bottom: 1px dashed var(--linea); font-size: .95rem;
+    }
+    .specs li span:first-child { font-family: var(--mono); font-size: .78rem; color: var(--tinta-suave); text-transform: uppercase; padding-top: 2px; }
+    .specs li span:last-child { text-align: right; font-weight: 500; }
+
+    .botones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      font-family: var(--mono); font-size: .85rem; text-decoration: none;
+      padding: 12px 18px; border: 1.5px solid var(--tinta);
+      transition: background .15s, color .15s, transform .15s;
+    }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--tinta); }
+    .btn-lleno { background: var(--tinta); color: var(--papel); }
+    .btn-lleno:hover { background: var(--acento); border-color: var(--acento); box-shadow: 2px 2px 0 var(--tinta); }
+
+    /* ===== Secciones ===== */
+    section { border-bottom: 1.5px solid var(--tinta); }
+    .sec-titulo {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 18px 32px; border-bottom: 1px solid var(--linea);
+    }
+    .sec-titulo .num { font-family: var(--mono); color: var(--acento); font-size: .9rem; }
+    .sec-titulo h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+    .sec-cuerpo { padding: 32px; }
+
+    .historia { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media (max-width: 760px) { .historia { grid-template-columns: 1fr; } }
+    .historia p { color: var(--tinta-suave); }
+    .historia p strong { color: var(--tinta); font-weight: 600; }
+    .flujo { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: .85rem; margin-top: 20px; }
+    .flujo span { border: 1px solid var(--tinta); padding: 6px 10px; background: var(--papel-2); }
+    .flujo b { color: var(--acento); font-weight: 500; }
+
+    /* ===== Servicios ===== */
+    .grilla-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 800px) { .grilla-3 { grid-template-columns: 1fr; } }
+    .celda { padding: 28px 32px; }
+    .grilla-3 .celda + .celda { border-left: 1px solid var(--linea); }
+    @media (max-width: 800px) { .grilla-3 .celda + .celda { border-left: 0; border-top: 1px solid var(--linea); } }
+    .celda h3 { font-size: 1.1rem; margin: 10px 0 8px; }
+    .celda p { color: var(--tinta-suave); font-size: .95rem; }
+
+    /* ===== Proyectos ===== */
+    .proyectos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    @media (max-width: 900px) { .proyectos { grid-template-columns: 1fr; } }
+    .proyecto { display: flex; flex-direction: column; border-right: 1px solid var(--linea); }
+    .proyecto:last-child { border-right: 0; }
+    @media (max-width: 900px) { .proyecto { border-right: 0; border-bottom: 1px solid var(--linea); } .proyecto:last-child { border-bottom: 0; } }
+    .figura {
+      aspect-ratio: 16/10; border-bottom: 1px solid var(--linea);
+      position: relative; overflow: hidden; background: var(--papel-2);
+    }
+    .figura .rotulo { position: absolute; left: 12px; bottom: 10px; }
+    /* mini maquetas hechas con CSS, sin imágenes de terceros */
+    .mock { position: absolute; inset: 18px 18px 36px; border: 1.5px solid var(--tinta); background: var(--papel); }
+    .mock::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 14px; border-bottom: 1.5px solid var(--tinta); background: var(--papel-2); }
+    .m-tienda { background:
+      linear-gradient(var(--tinta),var(--tinta)) 10% 40%/24% 30% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 50% 40%/24% 30% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 90% 40%/24% 30% no-repeat,
+      linear-gradient(var(--acento),var(--acento)) 90% 85%/30% 10% no-repeat, var(--papel); }
+    .m-landing { background:
+      linear-gradient(var(--tinta),var(--tinta)) 50% 35%/60% 14% no-repeat,
+      linear-gradient(var(--linea),var(--linea)) 50% 58%/80% 5% no-repeat,
+      linear-gradient(var(--linea),var(--linea)) 50% 68%/70% 5% no-repeat,
+      linear-gradient(var(--acento),var(--acento)) 50% 86%/28% 10% no-repeat, var(--papel); }
+    .m-negocio { background:
+      linear-gradient(var(--tinta),var(--tinta)) 12% 32%/45% 12% no-repeat,
+      linear-gradient(var(--linea),var(--linea)) 12% 50%/40% 5% no-repeat,
+      linear-gradient(var(--acento),var(--acento)) 12% 70%/22% 10% no-repeat,
+      radial-gradient(circle, #2fa84f 45%, transparent 47%) 92% 88%/22px 22px no-repeat, var(--papel); }
+    .info { padding: 22px 24px; display: flex; flex-direction: column; flex: 1; }
+    .info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .info p { color: var(--tinta-suave); font-size: .93rem; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 16px; }
+    .tags span { font-family: var(--mono); font-size: .72rem; border: 1px solid var(--linea); padding: 2px 8px; }
+    .link { font-family: var(--mono); font-size: .85rem; text-decoration: none; color: var(--acento); font-weight: 500; }
+    .link:hover { text-decoration: underline; }
+
+    /* ===== Tabla de habilidades ===== */
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    th, td { text-align: left; padding: 12px 32px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+    th { font-family: var(--mono); font-weight: 400; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--tinta-suave); background: var(--papel-2); }
+    td:first-child { font-weight: 600; width: 28%; }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 600px) { th, td { padding: 10px 16px; } }
+
+    /* ===== Certificación ===== */
+    .cert {
+      display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      text-decoration: none; padding: 28px 32px; transition: background .15s;
+    }
+    .cert:hover { background: var(--papel-2); }
+    .cert h3 { font-size: 1.15rem; }
+    .sello {
+      width: 64px; height: 64px; border: 1.5px solid var(--tinta); border-radius: 50%;
+      display: grid; place-items: center; font-family: var(--mono); font-size: .7rem; text-align: center; line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    /* ===== Trayectoria ===== */
+    .linea-tiempo { list-style: none; }
+    .linea-tiempo li { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 32px; border-bottom: 1px solid var(--linea); }
+    .linea-tiempo li:last-child { border-bottom: 0; }
+    .linea-tiempo .fecha { font-family: var(--mono); font-size: .82rem; color: var(--acento); padding-top: 3px; }
+    .linea-tiempo h4 { font-size: 1.02rem; }
+    .linea-tiempo p { color: var(--tinta-suave); font-size: .93rem; }
+    @media (max-width: 600px) { .linea-tiempo li { grid-template-columns: 1fr; gap: 4px; padding: 16px; } }
+
+    /* ===== Contacto ===== */
+    .contacto { padding: 48px 32px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+    @media (max-width: 760px) { .contacto { grid-template-columns: 1fr; } }
+    .contacto h2 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .contacto h2 em { font-style: normal; color: var(--acento); }
+    .canales { display: flex; flex-direction: column; gap: 10px; }
+    .canal {
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      border: 1.5px solid var(--tinta); padding: 12px 16px; text-decoration: none;
+      font-family: var(--mono); font-size: .85rem; background: var(--papel); cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .canal:hover { transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--tinta); }
+    button.canal { color: inherit; width: 100%; text-align: left; }
+
+    footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 14px 24px; font-family: var(--mono); font-size: .75rem; color: var(--tinta-suave); }
+
+    /* Animación sutil al entrar en pantalla (sin librerías) */
+    .js .aparece { opacity: 0; transform: translateY(12px); transition: opacity .6s, transform .6s; }
+    .js .aparece.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js .aparece { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
+  <main class="hoja">
 
-    <div id="particles-js" class="fixed inset-0 z-0"></div>
-
-    <div class="relative z-10">
-
-        <header id="home" class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-            <h1 id="main-title" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 break-words"></h1>
-            <p data-aos="fade-up" data-aos-delay="1200" class="text-base sm:text-lg md:text-2xl text-sky-400">Técnico Electrónico | Estudiante de Gestión de la Informática</p>
-            <a href="#sobre-mi" data-aos="fade-up" data-aos-delay="1400" class="mt-8 animate-bounce bg-sky-500/20 p-3 rounded-full border border-sky-500">
-                <i data-feather="arrow-down" class="text-sky-400"></i>
-            </a>
-        </header>
-
-        <main class="container mx-auto px-6 md:px-12">
-
-            <section id="sobre-mi" class="py-20">
-                <h2 data-aos="fade-right" class="text-3xl font-bold mb-8 text-center text-gradient">Perfil Profesional</h2>
-                <div data-aos="zoom-in-up" class="glass-card rounded-xl p-8 max-w-4xl mx-auto text-center leading-relaxed">
-                    <p>
-                        Soy Técnico Electrónico con habilidades en tecnología y programación, y una mentalidad práctica orientada a la resolución de problemas. Actualmente, estoy cursando la Licenciatura en Gestión de la Informática en la UADE.
-                    </p>
-                    <p class="mt-4">
-                        Mi formación me permite abordar desafíos desde una perspectiva tanto técnica como de gestión. Soy proactivo, con gran capacidad de aprendizaje y adaptable. Busco aplicar mis conocimientos y aptitud técnica en un entorno real para contribuir al éxito de la organización y continuar mi crecimiento profesional.
-                    </p>
-                </div>
-            </section>
-
-            <section id="skills" class="py-20">
-                <h2 data-aos="fade-left" class="text-3xl font-bold mb-12 text-center text-gradient">Habilidades</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div data-aos="fade-up" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="inline-block p-4 bg-sky-500/20 rounded-full mb-4 border border-sky-500">
-                            <i data-feather="code" class="w-8 h-8 text-sky-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Lenguajes</h3>
-                        <ul class="text-gray-400">
-                            <li>Python (Básico)</li>
-                            <li>HTML (Básico)</li>
-                            <li>CSS (Básico)</li>
-                            <li>JavaScript (Básico)</li>
-                        </ul>
-                    </div>
-
-                    <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="inline-block p-4 bg-indigo-500/20 rounded-full mb-4 border border-indigo-500">
-                            <i data-feather="cpu" class="w-8 h-8 text-indigo-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Técnicas</h3>
-                        <ul class="text-gray-400">
-                            <li class="text-sky-300 font-semibold italic">Cloud Computing (Certificado)</li>
-                            <li>Diagnóstico de Fallas</li>
-                            <li>Mantenimiento de Equipos</li>
-                            <li>Soporte Técnico</li>
-                        </ul>
-                    </div>
-
-                    <div data-aos="fade-up" data-aos-delay="400" class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="inline-block p-4 bg-emerald-500/20 rounded-full mb-4 border border-emerald-500">
-                            <i data-feather="users" class="w-8 h-8 text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Blandas</h3>
-                        <ul class="text-gray-400">
-                            <li>Proactividad</li>
-                            <li>Aprendizaje Rápido</li>
-                            <li>Adaptabilidad</li>
-                            <li>Trabajo en Equipo</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-<section id="certificaciones" class="py-20">
-                <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Certificaciones</h2>
-                <a href="https://skillshop.exceedlms.com/student/award/whVZm5hebohdGzkreWgra6qC" target="_blank" rel="noopener noreferrer" 
-                   data-aos="zoom-in" 
-                   class="glass-card rounded-xl p-6 max-w-2xl mx-auto flex items-center gap-6 border-l-4 border-sky-500 transform hover:scale-[1.02] hover:bg-gray-800/80 transition-all duration-300 cursor-pointer block">
-                    <div class="bg-sky-500/10 p-4 rounded-full">
-                        <i data-feather="cloud" class="w-10 h-10 text-sky-400"></i>
-                    </div>
-                    <div class="flex-grow">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold text-white">Professional Certification in Cloud Computing</h3>
-                            <i data-feather="external-link" class="w-5 h-5 text-gray-500"></i>
-                        </div>
-                        <p class="text-gray-400">Google Cloud | Marzo de 2026</p>
-                        <p class="text-xs text-sky-400 mt-2 font-semibold tracking-wider">CLICK PARA VER CREDENCIAL</p>
-                    </div>
-                </a>
-            </section>
-
-            <section id="proyectos" class="py-20">
-                <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mis Proyectos</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div data-aos="fade-up" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20">
-                        <img src="https://cowboylifestylenetwork.com/wp-content/uploads/2022/05/Kings-Saddlery-1536x864.jpg" alt="Vista previa del e-commerce Don Sixto" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold mb-2">E-commerce "Don Sixto"</h3>
-                            <p class="text-gray-400 text-sm mb-4 flex-grow">Prototipo front-end de una tienda online, implementado como una Single Page Application (SPA) con JavaScript puro para manejar la navegación, el filtrado de productos y el carrito de compras.</p>
-                            <a href="https://juancho2264.github.io/DonSixto/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 mt-auto bg-sky-500/80 text-white py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">
-                                Ver Proyecto <i data-feather="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200" class="group glass-card rounded-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
-                        <img src="https://i.pinimg.com/originals/17/32/d5/1732d5bc0302216953d410d553d4a463.jpg" alt="Vista previa de la landing page de Michael Jordan" class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-110">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold mb-2">Tributo a Michael Jordan</h3>
-                            <p class="text-gray-400 text-sm mb-4 flex-grow">Landing page interactiva que repasa la carrera de Michael Jordan. El proyecto se enfoca en la manipulación dinámica del DOM y un diseño totalmente responsive utilizando Tailwind CSS.</p>
-                            <a href="https://juancho2264.github.io/Jordan/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 mt-auto bg-indigo-500/80 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors">
-                                Ver Proyecto <i data-feather="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="journey" class="py-20">
-                 <h2 data-aos="fade-right" class="text-3xl font-bold mb-12 text-center text-gradient">Mi Trayectoria</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                    
-                    <div data-aos="fade-right" data-aos-delay="200">
-                        <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="book-open" class="text-sky-400"></i> Educación</h3>
-                        <div class="relative border-l-2 border-sky-500/50 pl-8 space-y-10">
-                            <div class="absolute w-4 h-4 bg-sky-400 rounded-full -left-2 top-1"></div>
-                            <div class="transform hover:scale-105 transition-transform duration-300">
-                                <h4 class="font-bold text-lg">Técnico Electrónico</h4>
-                                <p class="text-sm text-gray-400">Escuela Técnica Nº1 de Merlo</p>
-                                <p class="text-xs text-gray-500">2016 - 2022 | Título Finalizado</p>
-                            </div>
-                            <div class="absolute w-4 h-4 bg-sky-400 rounded-full -left-2"></div>
-                            <div class="transform hover:scale-105 transition-transform duration-300">
-                                <h4 class="font-bold text-lg">Lic. en Gestión de la Informática</h4>
-                                <p class="text-sm text-gray-400">Universidad Argentina de la Empresa (UADE)</p>
-                                <p class="text-xs text-gray-500">Actualmente cursando</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-aos="fade-left" data-aos-delay="400">
-                        <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i data-feather="briefcase" class="text-indigo-400"></i> Experiencia Laboral</h3>
-                        <div class="relative border-l-2 border-indigo-500/50 pl-8 space-y-10">
-                            <div class="absolute w-4 h-4 bg-indigo-400 rounded-full -left-2 top-1"></div>
-                            <div class="transform hover:scale-105 transition-transform duration-300">
-                                <h4 class="font-bold text-lg">Sacabocados W.A.N</h4>
-                                <p class="text-sm text-gray-400 italic mb-2">
-                                    Participé en la fabricación de troqueles rotativos, asegurando la calidad y precisión de los componentes.
-                                </p>
-                                <p class="text-xs text-gray-500">2023 - 2024</p>
-                            </div>
-                            <div class="absolute w-4 h-4 bg-indigo-400 rounded-full -left-2"></div>
-                            <div class="transform hover:scale-105 transition-transform duration-300">
-                                <h4 class="font-bold text-lg">Green Box 'Envases Corrugado'</h4>
-                                <p class="text-sm text-gray-400 italic mb-2">
-                                    Operé en la línea de producción de cajas de cartón, cumpliendo con los objetivos diarios del equipo.
-                                </p>
-                                <p class="text-xs text-gray-500">2024 - 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="py-20 text-center">
-                <h2 data-aos="zoom-in" class="text-3xl font-bold text-gradient mb-4">¿Hablamos?</h2>
-                <p data-aos="zoom-in" data-aos-delay="100" class="text-gray-400 mb-8 max-w-lg mx-auto">Estoy abierto a nuevas oportunidades y desafíos. Si crees que mi perfil encaja en tu equipo, no dudes en contactarme.</p>
-                <div data-aos="zoom-in" data-aos-delay="200" class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-                    <div id="email-container" class="tooltip flex items-center gap-2 bg-gray-800 py-2 px-4 rounded-lg">
-                        <i data-feather="mail" class="text-gray-400"></i>
-                        <span id="email-text" class="text-white">juanchoferrandini3@gmail.com</span>
-                        <button id="copy-button" class="ml-2 text-gray-400 hover:text-sky-400 transition-colors">
-                            <i data-feather="copy" class="w-5 h-5"></i>
-                        </button>
-                        <span class="tooltiptext" id="tooltip-text">Copiar al portapapeles</span>
-                    </div>
-                    <a href="https://www.linkedin.com/in/juan-cruz-ferrandini-a47a89224/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-gray-800 py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors duration-300">
-                        <i data-feather="linkedin"></i>
-                        LinkedIn
-                    </a>
-                </div>
-            </section>
-        </main>
-
-        <footer class="text-center py-6 border-t border-gray-800">
-            <p class="text-gray-500 text-sm">&copy; 2026 Juan Cruz Ferrandini. Todos los derechos reservados.</p>
-        </footer>
-
+    <div class="barra">
+      <span>JCF — HOJA DE DATOS · REV. 2.0</span>
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ===== PORTADA ===== -->
+    <header class="portada">
+      <div>
+        <span class="etiqueta">Técnico Electrónico · Gestión de TI · Desarrollo web</span>
+        <h1>Juan Cruz<br>Ferrandini<em>.</em></h1>
+        <p class="lead">Del taller y la fábrica al software: armo herramientas digitales que resuelven problemas reales.</p>
+        <div class="botones">
+          <a class="btn btn-lleno" href="#proyectos">Ver proyectos →</a>
+          <a class="btn" href="#contacto">Contactarme</a>
+        </div>
+        <div class="estado"><span class="led"></span> Disponible: Trainee / Junior IT y proyectos freelance</div>
+      </div>
+      <div>
+        <span class="etiqueta">Especificaciones</span>
+        <ul class="specs" style="margin-top:10px;">
+          <li><span>Formación</span><span>Lic. en Gestión de Tecnología de la Información — UADE</span></li>
+          <li><span>Título</span><span>Técnico Electrónico</span></li>
+          <li><span>Certificación</span><span>Cloud Computing — Google Cloud</span></li>
+          <li><span>Experiencia</span><span>Industria del corrugado y troquelado</span></li>
+          <li><span>Zona</span><span>Buenos Aires, Argentina</span></li>
+        </ul>
+      </div>
+    </header>
 
-    <script>
-        // ===== FEATHER ICONS INITIALIZATION / INICIALIZACIÓN DE FEATHER ICONS =====
-        feather.replace();
+    <!-- ===== 01 PERFIL ===== -->
+    <section id="perfil">
+      <div class="sec-titulo"><span class="num">01</span><h2>Perfil</h2></div>
+      <div class="sec-cuerpo historia aparece">
+        <p>
+          Soy <strong>Técnico Electrónico</strong> y estudio la <strong>Licenciatura en Gestión de Tecnología de la Información en UADE</strong> (2.º año).
+          Antes de escribir código trabajé en planta: en control de calidad de troqueles y en el seguimiento de pedidos y despachos de una fábrica de cartón corrugado.
+        </p>
+        <p>
+          Eso me dio algo que no se aprende en un aula: <strong>entender cómo funciona un negocio por dentro</strong>, dónde se pierde tiempo y qué problemas se pueden resolver con tecnología.
+          Hoy combino esa mirada práctica con desarrollo web y cloud.
+        </p>
+      </div>
+      <div class="sec-cuerpo" style="padding-top:0;">
+        <div class="flujo aparece">
+          <span>Electrónica</span><b>→</b><span>Industria</span><b>→</b><span>Gestión IT</span><b>→</b><span>Software</span>
+        </div>
+      </div>
+    </section>
 
-        // ===== AOS (ANIMATE ON SCROLL) INITIALIZATION / INICIALIZACIÓN DE AOS =====
-        AOS.init({
-            duration: 600,
-            once: false,
-        });
+    <!-- ===== 02 SERVICIOS ===== -->
+    <section id="servicios">
+      <div class="sec-titulo"><span class="num">02</span><h2>Qué puedo hacer por tu negocio</h2></div>
+      <div class="grilla-3">
+        <div class="celda aparece">
+          <span class="etiqueta">Servicio A</span>
+          <h3>Páginas web</h3>
+          <p>Sitios simples y rápidos para comercios y profesionales: servicios, precios, horarios, mapa y botón de WhatsApp. Pensados para el celular.</p>
+        </div>
+        <div class="celda aparece">
+          <span class="etiqueta">Servicio B</span>
+          <h3>Planillas y automatizaciones</h3>
+          <p>Control de stock, pedidos, turnos o presupuestos. Ordeno lo que hoy se hace en papel o en un Excel que nadie entiende.</p>
+        </div>
+        <div class="celda aparece">
+          <span class="etiqueta">Servicio C</span>
+          <h3>Presencia en Google</h3>
+          <p>Perfil de Google Maps y datos al día para que tus clientes te encuentren cuando buscan lo que vendés en tu zona.</p>
+        </div>
+      </div>
+    </section>
 
-        // ===== TITLE REVEAL ANIMATION / ANIMACIÓN DE REVELADO DEL TÍTULO =====
-        document.addEventListener('DOMContentLoaded', () => {
-            const title = "Juan Cruz Ferrandini";
-            const titleContainer = document.getElementById('main-title');
-            title.split('').forEach((char, index) => {
-                const span = document.createElement('span');
-                span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space / Usa espacio de no ruptura
-                span.className = 'title-char';
-                span.style.animationDelay = `${index * 0.05}s`;
-                titleContainer.appendChild(span);
-            });
-        });
+    <!-- ===== 03 PROYECTOS ===== -->
+    <section id="proyectos">
+      <div class="sec-titulo"><span class="num">03</span><h2>Proyectos</h2></div>
+      <div class="proyectos">
 
-        // ===== CLIPBOARD COPY LOGIC / LÓGICA PARA COPIAR AL PORTAPAPELES =====
-        const copyButton = document.getElementById('copy-button');
-        const emailText = document.getElementById('email-text').innerText;
-        const tooltipContainer = document.getElementById('email-container');
-        const tooltipText = document.getElementById('tooltip-text');
+        <article class="proyecto aparece">
+          <div class="figura"><div class="mock m-negocio"></div><span class="rotulo etiqueta">Fig. 01 — Sitio de negocio</span></div>
+          <div class="info">
+            <h3>Barbería — sitio para comercio</h3>
+            <p>Web de ejemplo para un comercio de barrio: servicios con precios, galería, horarios, mapa y reserva de turnos por WhatsApp. Lista para adaptar a cualquier rubro.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span><span>SEO básico</span></div>
+            <!-- CAMBIAR: link cuando publiques la demo en GitHub Pages -->
+            <a class="link" href="https://juancho2264.github.io/barberia-demo/" target="_blank" rel="noopener">Ver demo ↗</a>
+          </div>
+        </article>
 
-        copyButton.addEventListener('click', () => {
-            const tempTextArea = document.createElement('textarea');
-            tempTextArea.value = emailText;
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempTextArea);
+        <article class="proyecto aparece">
+          <div class="figura"><div class="mock m-tienda"></div><span class="rotulo etiqueta">Fig. 02 — SPA / carrito</span></div>
+          <div class="info">
+            <h3>E-commerce "Don Sixto"</h3>
+            <p>Prototipo de tienda online como Single Page Application en JavaScript puro: navegación, filtrado de productos y carrito de compras.</p>
+            <div class="tags"><span>JavaScript</span><span>SPA</span><span>DOM</span></div>
+            <a class="link" href="https://juancho2264.github.io/DonSixto/" target="_blank" rel="noopener">Ver proyecto ↗</a>
+          </div>
+        </article>
 
-            // Show confirmation tooltip / Muestra tooltip de confirmación
-            tooltipText.innerText = '¡Copiado!';
-            tooltipContainer.classList.add('show');
-            
-            // Revert tooltip text after 2 seconds / Revierte el texto del tooltip después de 2 segundos
-            setTimeout(() => {
-                tooltipContainer.classList.remove('show');
-                setTimeout(() => {
-                    tooltipText.innerText = 'Copiar al portapapeles';
-                }, 300);
-            }, 2000);
-        });
-        
-        // Show tooltip on hover / Muestra el tooltip al pasar el cursor
-        copyButton.addEventListener('mouseenter', () => {
-             tooltipContainer.classList.add('show');
-        });
+        <article class="proyecto aparece">
+          <div class="figura"><div class="mock m-landing"></div><span class="rotulo etiqueta">Fig. 03 — Landing</span></div>
+          <div class="info">
+            <h3>Landing interactiva — Michael Jordan</h3>
+            <p>Landing page que repasa una carrera deportiva, con manipulación dinámica del DOM y diseño totalmente responsive.</p>
+            <div class="tags"><span>Tailwind CSS</span><span>JavaScript</span><span>Responsive</span></div>
+            <a class="link" href="https://juancho2264.github.io/Jordan/" target="_blank" rel="noopener">Ver proyecto ↗</a>
+          </div>
+        </article>
 
-        // Hide tooltip on mouse leave / Oculta el tooltip al quitar el cursor
-        copyButton.addEventListener('mouseleave', () => {
-            if (tooltipText.innerText === 'Copiar al portapapeles') {
-                tooltipContainer.classList.remove('show');
-            }
-        });
+      </div>
+    </section>
 
+    <!-- ===== 04 HABILIDADES ===== -->
+    <section id="habilidades">
+      <div class="sec-titulo"><span class="num">04</span><h2>Habilidades</h2></div>
+      <table class="aparece">
+        <thead><tr><th>Área</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td>Desarrollo web</td><td>HTML, CSS, JavaScript, Tailwind CSS · sitios responsive</td></tr>
+          <tr><td>Programación y datos</td><td>Python · SQL · algoritmos y estructuras de datos · POO</td></tr>
+          <tr><td>Análisis y calidad</td><td>Relevamiento de requerimientos · análisis de procesos · documentación funcional · testing</td></tr>
+          <tr><td>Cloud y herramientas</td><td>Google Cloud (certificado) · Git y GitHub · GitHub Pages</td></tr>
+          <tr><td>Hardware</td><td>Diagnóstico de fallas · mantenimiento de equipos · soporte técnico</td></tr>
+          <tr><td>Forma de trabajo</td><td>Aprendizaje rápido · trabajo en equipo · experiencia en planta con objetivos diarios</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-        // ===== PARTICLES.JS INITIALIZATION / INICIALIZACIÓN DE PARTICLES.JS =====
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 }},
-                "color": { "value": "#38bdf8" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#4f46e5", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
-                    "push": { "particles_nb": 4 }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+    <!-- ===== 05 CERTIFICACIÓN ===== -->
+    <section id="certificacion">
+      <div class="sec-titulo"><span class="num">05</span><h2>Certificación</h2></div>
+      <a class="cert aparece" href="https://skillshop.exceedlms.com/student/award/whVZm5hebohdGzkreWgra6qC" target="_blank" rel="noopener noreferrer">
+        <div>
+          <span class="etiqueta">Google Cloud · Marzo 2026</span>
+          <h3>Professional Certification in Cloud Computing</h3>
+          <span class="link">Ver credencial ↗</span>
+        </div>
+        <div class="sello">GOOGLE<br>CLOUD<br>✓</div>
+      </a>
+    </section>
+
+    <!-- ===== 06 TRAYECTORIA ===== -->
+    <section id="trayectoria">
+      <div class="sec-titulo"><span class="num">06</span><h2>Trayectoria</h2></div>
+      <ul class="linea-tiempo aparece">
+        <li>
+          <span class="fecha">2024 — hoy</span>
+          <div><h4>Lic. en Gestión de Tecnología de la Información</h4><p>Universidad Argentina de la Empresa (UADE)</p></div>
+        </li>
+        <li>
+          <span class="fecha">2024 — 2025</span>
+          <div><h4>Green Box — Control y apoyo en producción</h4><p>Control y apoyo en producción: seguimiento de pedidos y despachos, organización de cargas y tiempos de entrega, mejora de procesos internos.</p></div>
+        </li>
+        <li>
+          <span class="fecha">2023 — 2024</span>
+          <div><h4>Sacabocados W.A.N — Asistencia técnica y calidad</h4><p>Control de calidad en la fabricación de troqueles rotativos, organización de pedidos y resolución de problemas técnicos.</p></div>
+        </li>
+        <li>
+          <span class="fecha">2016 — 2022</span>
+          <div><h4>Técnico Electrónico</h4><p>Escuela Técnica Nº 1 de Merlo · título finalizado</p></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" style="border-bottom:1.5px solid var(--tinta);">
+      <div class="contacto">
+        <div>
+          <span class="etiqueta">Contacto</span>
+          <h2 style="margin-top:10px;">¿Tenés un proyecto o una oportunidad?<br><em>Hablemos.</em></h2>
+        </div>
+        <div class="canales">
+          <button class="canal" id="copiar" type="button" aria-label="Copiar email">
+            <span id="email">juanchoferrandini3@gmail.com</span><span id="copiar-txt">copiar</span>
+          </button>
+          <a class="canal" href="https://www.linkedin.com/in/juan-cruz-ferrandini-a47a89224/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>↗</span></a>
+          <a class="canal" href="https://github.com/juancho2264" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>↗</span></a>
+          <!-- Opcional: sumá tu WhatsApp → <a class="canal" href="https://wa.me/549XXXXXXXXXX">WhatsApp ↗</a> -->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="anio"></span> Juan Cruz Ferrandini</span>
+      <span>Hecho a mano · HTML + CSS + JS · sin librerías</span>
+    </footer>
+  </main>
+
+  <script>
+    // Año automático
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // Copiar email (API moderna del portapapeles)
+    const btn = document.getElementById('copiar');
+    const txt = document.getElementById('copiar-txt');
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(document.getElementById('email').textContent);
+        txt.textContent = '¡copiado!';
+      } catch {
+        txt.textContent = 'seleccioná y copiá';
+      }
+      setTimeout(() => (txt.textContent = 'copiar'), 2000);
+    });
+
+    // Animación al hacer scroll, sin librerías externas
+    const obs = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.aparece').forEach((el) => obs.observe(el));
+  </script>
 </body>
 </html>
