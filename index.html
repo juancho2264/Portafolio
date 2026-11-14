@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<script>document.documentElement.classList.add('js')</script>
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juan Cruz Ferrandini | Técnico Electrónico · IT · Desarrollo web</title>
-  <meta name="description" content="Técnico Electrónico y estudiante de Gestión de Tecnología de la Información (UADE). Certificado en Google Cloud. Hago páginas web y herramientas digitales para negocios.">
+  <meta name="description" content="Técnico Electrónico y estudiante de Gestión de Tecnología de la Información (UADE). Certificado en Google Cloud. Desarrollo web full stack (Java, Spring Boot, React) y automatizaciones para negocios.">
 
   <!-- Vista previa cuando compartís el link por WhatsApp o LinkedIn -->
   <meta property="og:title" content="Juan Cruz Ferrandini — Técnico Electrónico · IT">
@@ -152,21 +152,44 @@
     /* mini maquetas hechas con CSS, sin imágenes de terceros */
     .mock { position: absolute; inset: 18px 18px 36px; border: 1.5px solid var(--tinta); background: var(--papel); }
     .mock::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 14px; border-bottom: 1.5px solid var(--tinta); background: var(--papel-2); }
-    .m-tienda { background:
-      linear-gradient(var(--tinta),var(--tinta)) 10% 40%/24% 30% no-repeat,
-      linear-gradient(var(--tinta),var(--tinta)) 50% 40%/24% 30% no-repeat,
-      linear-gradient(var(--tinta),var(--tinta)) 90% 40%/24% 30% no-repeat,
-      linear-gradient(var(--acento),var(--acento)) 90% 85%/30% 10% no-repeat, var(--papel); }
     .m-landing { background:
       linear-gradient(var(--tinta),var(--tinta)) 50% 35%/60% 14% no-repeat,
       linear-gradient(var(--linea),var(--linea)) 50% 58%/80% 5% no-repeat,
       linear-gradient(var(--linea),var(--linea)) 50% 68%/70% 5% no-repeat,
       linear-gradient(var(--acento),var(--acento)) 50% 86%/28% 10% no-repeat, var(--papel); }
-    .m-negocio { background:
-      linear-gradient(var(--tinta),var(--tinta)) 12% 32%/45% 12% no-repeat,
-      linear-gradient(var(--linea),var(--linea)) 12% 50%/40% 5% no-repeat,
-      linear-gradient(var(--acento),var(--acento)) 12% 70%/22% 10% no-repeat,
-      radial-gradient(circle, #2fa84f 45%, transparent 47%) 92% 88%/22px 22px no-repeat, var(--papel); }
+    /* Maqueta del chat de TurnoBot: burbujas y botones hechos con CSS */
+    .m-chat { display: flex; flex-direction: column; gap: 8px; padding: 26px 14px 12px; background: var(--papel-2); }
+    .m-chat .b { display: block; height: 16px; width: 55%; border: 1.5px solid var(--tinta); background: var(--papel); border-radius: 6px; }
+    .m-chat .b--yo { align-self: flex-end; width: 40%; background: var(--acento); border-color: var(--acento); }
+    .m-chat .b--largo { height: 28px; width: 70%; }
+    .m-chat .b--corto { width: 28%; }
+    .m-chat .chips { display: flex; gap: 6px; margin-top: auto; }
+    .m-chat .chips i { width: 22%; height: 14px; border: 1.5px solid var(--tinta); border-radius: 999px; }
+    /* Maqueta del gráfico de Jordan: barras con alturas distintas */
+    .m-datos { background:
+      linear-gradient(var(--tinta),var(--tinta)) 10% 88%/9% 40% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 24% 88%/9% 62% no-repeat,
+      linear-gradient(var(--acento),var(--acento)) 38% 88%/9% 78% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 52% 88%/9% 55% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 66% 88%/9% 66% no-repeat,
+      linear-gradient(var(--tinta),var(--tinta)) 80% 88%/9% 48% no-repeat,
+      linear-gradient(var(--linea),var(--linea)) 50% 89%/86% 2px no-repeat, var(--papel); }
+
+    /* ===== Proyecto destacado ===== */
+    .destacado { display: grid; grid-template-columns: 1fr 1.2fr; border-bottom: 1px solid var(--linea); }
+    .destacado .figura { aspect-ratio: auto; min-height: 280px; border-bottom: 0; border-right: 1px solid var(--linea); }
+    .destacado .info { padding: 28px 32px; }
+    .destacado h3 { font-size: 1.4rem; margin: 8px 0 10px; }
+    @media (max-width: 800px) {
+      .destacado { grid-template-columns: 1fr; }
+      .destacado .figura { min-height: 220px; border-right: 0; border-bottom: 1px solid var(--linea); }
+      .destacado .info { padding: 22px 24px; }
+    }
+    .logros { margin: 14px 0 0 18px; color: var(--tinta-suave); font-size: .93rem; display: grid; gap: 4px; }
+    .enlaces { display: flex; flex-wrap: wrap; gap: 18px; }
+    .proyectos--dos { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) { .proyectos--dos { grid-template-columns: 1fr; } }
+
     .info { padding: 22px 24px; display: flex; flex-direction: column; flex: 1; }
     .info h3 { font-size: 1.1rem; margin-bottom: 8px; }
     .info p { color: var(--tinta-suave); font-size: .93rem; flex: 1; }
@@ -296,8 +319,8 @@
         </div>
         <div class="celda aparece">
           <span class="etiqueta">Servicio B</span>
-          <h3>Planillas y automatizaciones</h3>
-          <p>Control de stock, pedidos, turnos o presupuestos. Ordeno lo que hoy se hace en papel o en un Excel que nadie entiende.</p>
+          <h3>Bots y automatizaciones</h3>
+          <p>Un asistente que atiende por chat las 24 hs y toma turnos o pedidos sin errores. Ordeno lo que hoy se hace por WhatsApp, en papel o en un Excel que nadie entiende. <a class="link" href="#proyectos">Ver TurnoBot ↓</a></p>
         </div>
         <div class="celda aparece">
           <span class="etiqueta">Servicio C</span>
@@ -310,36 +333,62 @@
     <!-- ===== 03 PROYECTOS ===== -->
     <section id="proyectos">
       <div class="sec-titulo"><span class="num">03</span><h2>Proyectos</h2></div>
-      <div class="proyectos">
+      <!-- Proyecto destacado -->
+      <article class="destacado aparece">
+        <div class="figura figura--grande">
+          <div class="mock m-chat">
+            <span class="b b--bot"></span><span class="b b--yo"></span><span class="b b--bot b--largo"></span><span class="b b--yo b--corto"></span><span class="b b--bot b--largo"></span>
+            <span class="chips"><i></i><i></i><i></i></span>
+          </div>
+          <span class="rotulo etiqueta">Fig. 01 — Full stack · bot + panel</span>
+        </div>
+        <div class="info">
+          <span class="etiqueta">Proyecto destacado</span>
+          <h3>TurnoBot — turnos por chat para negocios</h3>
+          <p>
+            Asistente que entiende cómo escribe la gente (<em>“corte y barba el viernes a la tarde con Lucas”</em>),
+            revisa la agenda real y reserva sin superponer turnos. El dueño tiene un panel con login, agenda por
+            profesional y estadísticas de ingresos y ocupación.
+          </p>
+          <ul class="logros">
+            <li>API REST en Java con Spring Boot, JPA y Spring Security con JWT</li>
+            <li>Intérprete de lenguaje natural en castellano y conversación como máquina de estados</li>
+            <li>29 tests automáticos (JUnit) que corren en GitHub Actions en cada cambio</li>
+            <li>Publicado con Docker en Render y frontend React en GitHub Pages</li>
+          </ul>
+          <div class="tags"><span>Java</span><span>Spring Boot</span><span>React</span><span>JWT</span><span>Docker</span><span>JUnit</span></div>
+          <div class="enlaces">
+            <a class="link" href="https://juancho2264.github.io/turnobot/" target="_blank" rel="noopener">Probar demo ↗</a>
+            <a class="link" href="https://github.com/juancho2264/turnobot" target="_blank" rel="noopener">Código ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="proyectos proyectos--dos">
 
         <article class="proyecto aparece">
-          <div class="figura"><div class="mock m-negocio"></div><span class="rotulo etiqueta">Fig. 01 — Sitio de negocio</span></div>
+          <div class="figura"><div class="mock m-landing"></div><span class="rotulo etiqueta">Fig. 02 — Landing B2B</span></div>
           <div class="info">
-            <h3>Barbería — sitio para comercio</h3>
-            <p>Web de ejemplo para un comercio de barrio: servicios con precios, galería, horarios, mapa y reserva de turnos por WhatsApp. Lista para adaptar a cualquier rubro.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span><span>SEO básico</span></div>
-            <!-- CAMBIAR: link cuando publiques la demo en GitHub Pages -->
-            <a class="link" href="https://juancho2264.github.io/barberia-demo/" target="_blank" rel="noopener">Ver demo ↗</a>
+            <h3>Landing corporativa — Box Group</h3>
+            <p>Sitio para una fábrica de cajas de cartón corrugado orientado a conseguir clientes de e-commerce: formulario de contacto que envía las consultas por mail, botón de WhatsApp y diseño responsive.</p>
+            <div class="tags"><span>HTML</span><span>CSS Grid</span><span>JavaScript</span><span>Formspree</span></div>
+            <div class="enlaces">
+              <a class="link" href="https://juancho2264.github.io/GreenBox/" target="_blank" rel="noopener">Ver sitio ↗</a>
+              <a class="link" href="https://github.com/juancho2264/GreenBox" target="_blank" rel="noopener">Código ↗</a>
+            </div>
           </div>
         </article>
 
         <article class="proyecto aparece">
-          <div class="figura"><div class="mock m-tienda"></div><span class="rotulo etiqueta">Fig. 02 — SPA / carrito</span></div>
+          <div class="figura"><div class="mock m-datos"></div><span class="rotulo etiqueta">Fig. 03 — Visualización de datos</span></div>
           <div class="info">
-            <h3>E-commerce "Don Sixto"</h3>
-            <p>Prototipo de tienda online como Single Page Application en JavaScript puro: navegación, filtrado de productos y carrito de compras.</p>
-            <div class="tags"><span>JavaScript</span><span>SPA</span><span>DOM</span></div>
-            <a class="link" href="https://juancho2264.github.io/DonSixto/" target="_blank" rel="noopener">Ver proyecto ↗</a>
-          </div>
-        </article>
-
-        <article class="proyecto aparece">
-          <div class="figura"><div class="mock m-landing"></div><span class="rotulo etiqueta">Fig. 03 — Landing</span></div>
-          <div class="info">
-            <h3>Landing interactiva — Michael Jordan</h3>
-            <p>Landing page que repasa una carrera deportiva, con manipulación dinámica del DOM y diseño totalmente responsive.</p>
-            <div class="tags"><span>Tailwind CSS</span><span>JavaScript</span><span>Responsive</span></div>
-            <a class="link" href="https://juancho2264.github.io/Jordan/" target="_blank" rel="noopener">Ver proyecto ↗</a>
+            <h3>Michael Jordan · una carrera en datos</h3>
+            <p>Las 15 temporadas de Jordan en un gráfico interactivo dibujado a mano en SVG, con línea de tiempo y trivia generadas desde archivos JSON. Sin frameworks ni librerías.</p>
+            <div class="tags"><span>JavaScript</span><span>SVG</span><span>JSON</span><span>Accesibilidad</span></div>
+            <div class="enlaces">
+              <a class="link" href="https://juancho2264.github.io/Jordan/" target="_blank" rel="noopener">Ver proyecto ↗</a>
+              <a class="link" href="https://github.com/juancho2264/Jordan" target="_blank" rel="noopener">Código ↗</a>
+            </div>
           </div>
         </article>
 
@@ -352,10 +401,11 @@
       <table class="aparece">
         <thead><tr><th>Área</th><th>Detalle</th></tr></thead>
         <tbody>
-          <tr><td>Desarrollo web</td><td>HTML, CSS, JavaScript, Tailwind CSS · sitios responsive</td></tr>
-          <tr><td>Programación y datos</td><td>Python · SQL · algoritmos y estructuras de datos · POO</td></tr>
+          <tr><td>Backend</td><td>Java · Spring Boot · Spring Data JPA · Spring Security + JWT · APIs REST</td></tr>
+          <tr><td>Frontend</td><td>JavaScript · React · HTML y CSS · sitios responsive y accesibles</td></tr>
+          <tr><td>Programación y datos</td><td>Python · SQL · algoritmos y estructuras de datos · POO · tests con JUnit</td></tr>
           <tr><td>Análisis y calidad</td><td>Relevamiento de requerimientos · análisis de procesos · documentación funcional · testing</td></tr>
-          <tr><td>Cloud y herramientas</td><td>Google Cloud (certificado) · Git y GitHub · GitHub Pages</td></tr>
+          <tr><td>Cloud y herramientas</td><td>Google Cloud (certificado) · Docker · Git y GitHub · GitHub Actions · Render</td></tr>
           <tr><td>Hardware</td><td>Diagnóstico de fallas · mantenimiento de equipos · soporte técnico</td></tr>
           <tr><td>Forma de trabajo</td><td>Aprendizaje rápido · trabajo en equipo · experiencia en planta con objetivos diarios</td></tr>
         </tbody>

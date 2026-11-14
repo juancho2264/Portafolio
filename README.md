@@ -1,27 +1,22 @@
-# 🚀 Personal Portfolio - Juan Cruz Ferrandini
+# Portafolio — Juan Cruz Ferrandini
 
-Mi portafolio profesional diseñado para mostrar mi transición de **Técnico Electrónico** a **Licenciado en Gestión de la Informática (UADE)**. Una plataforma interactiva que combina diseño moderno, optimización de recursos y despliegue en la nube.
+Técnico Electrónico y estudiante de la Licenciatura en Gestión de Tecnología de la Información (UADE). Certificado en Google Cloud.
 
-### 🔗 [Ver Portafolio en Vivo](https://juancho2264.github.io/Portafolio/)
+### 🔗 [Ver portafolio en vivo](https://juancho2264.github.io/Portafolio/)
 
----
+## Proyectos
 
-### 🛠️ Stack Tecnológico
-* **Frontend:** HTML5 semántico y CSS3.
-* **Framework de Estilos:** [Tailwind CSS](https://tailwindcss.com/) (Diseño Mobile-First y Utility-First).
-* **Interactividad:** JavaScript Vanilla para lógica de copiado, animaciones de texto y gestión del DOM.
-* **Librerías Visuales:** * [AOS.js](https://michalsnik.github.io/aos/) (Animaciones on-scroll).
-  * [Particles.js](https://vincentgarreau.com/particles.js/) (Fondo dinámico interactivo).
-  * [Feather Icons](https://feathericons.com/) (Iconografía minimalista).
+| Proyecto | Qué es | Tecnologías |
+|---|---|---|
+| [TurnoBot](https://github.com/juancho2264/turnobot) · [demo](https://juancho2264.github.io/turnobot/) | Asistente que toma turnos por chat, con panel para el dueño | Java, Spring Boot, Spring Security + JWT, React, Docker, JUnit |
+| [Box Group](https://github.com/juancho2264/GreenBox) · [sitio](https://juancho2264.github.io/GreenBox/) | Landing corporativa para una fábrica de cajas de cartón | HTML, CSS Grid, JavaScript, Formspree |
+| [Michael Jordan en datos](https://github.com/juancho2264/Jordan) · [sitio](https://juancho2264.github.io/Jordan/) | Carrera de Jordan en un gráfico interactivo hecho a mano en SVG | JavaScript, SVG, JSON |
 
-### 🌟 Características Principales
-* **Cloud Focused:** Sección dedicada a certificaciones profesionales en **Cloud Computing**.
-* **Glassmorphism UI:** Estética moderna basada en transparencias y desenfoque de fondo.
-* **UX Inclusiva:** Implementación de tooltips dinámicos y feedback visual para acciones del usuario (como copiar el email).
-* **Performance:** Optimización de carga mediante el uso de CDNs y scripts diferidos.
+## Sobre este sitio
 
-### 📈 Objetivos del Proyecto
-Este espacio no es solo una vidriera de mis trabajos en **Python** y **JS**, sino una prueba de mi capacidad para gestionar un proyecto de punta a punta: desde el diseño de la interfaz hasta el despliegue final y mantenimiento.
-
----
-*Desarrollado con dedicación por Juan Cruz Ferrandini - 2026*
+- **Estética de "hoja de datos" técnica**, como los datasheets de electrónica: papel, grilla y un solo color de acento.
+- **HTML, CSS y JavaScript sin librerías.** Todo el diseño se controla con variables CSS.
+- Las miniaturas de los proyectos son **maquetas hechas con CSS**, sin imágenes externas.
+- Animaciones al hacer scroll con `IntersectionObserver`, respetando la preferencia de "reducir movimiento" del sistema.
+- Botón para copiar el email con la API del portapapeles.
+- Publicado en GitHub Pages.
