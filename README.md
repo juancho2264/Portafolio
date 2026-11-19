@@ -2,7 +2,7 @@
 
 Técnico Electrónico y estudiante de la Licenciatura en Gestión de Tecnología de la Información (UADE). Certificado en Google Cloud.
 
-### 🔗 [Ver portafolio en vivo](https://juancho2264.github.io/Portafolio/)
+### 🔗 [Ver portafolio en vivo](https://juancruzferrandini.com.ar)
 
 ## Proyectos
 
