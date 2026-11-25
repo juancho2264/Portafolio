@@ -1,0 +1,13 @@
+# Cabeceras de seguridad (Cloudflare las aplica a todas las páginas del sitio)
+/*
+  # Siempre por HTTPS, también en visitas futuras
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Nadie puede meter la tienda dentro de otra página (evita engaños tipo "clickjacking")
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'
+  # El navegador no "adivina" tipos de archivo
+  X-Content-Type-Options: nosniff
+  # Al salir a otro sitio no se comparte la dirección completa
+  Referrer-Policy: strict-origin-when-cross-origin
+  # La página no usa cámara, micrófono ni ubicación: se bloquean
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
